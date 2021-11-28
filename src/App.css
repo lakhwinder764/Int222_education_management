@@ -1,0 +1,31 @@
+body{
+  background-image:url("./345.jpg") ;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+}
+.form{
+ 
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+ 
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  
+ 
+
+  
+  
+}
+.label{
+  color:white;
+  font-size: x-large;
+}
+.form1{
+  margin-top: 0%;
+  width: 50vh;
+  height: 50vh;
+}
