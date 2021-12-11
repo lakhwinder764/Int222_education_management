@@ -32,14 +32,7 @@ const App=(props)=> {
 
 const submit=async(e)=>{
     e.preventDefault();
-    if(user.ContactNumber.length>10 || user.ContactNumber.length<10){
-      Swal.fire(
-      'Error!',
-      'phone no should be of 10 digits',
-      'error'
-    )
-     
-   }
+    
   
     if(user.RollNo && user.Address && user.Email && user.Name && user.ContactNumber.length===10){
       await axios.post("http://localhost:4000/stuinfo",user)
@@ -57,8 +50,22 @@ const submit=async(e)=>{
   
       })
     }
-  
-   
+    else if(user.ContactNumber.length>10 || user.ContactNumber.length<10 && user.ContactNumber!=null){
+      Swal.fire(
+      'Error!',
+      'phone no should be of 10 digits',
+      'error'
+    )
+     
+   }
+   else{
+    Swal.fire(
+      'Error!',
+      'please fill all the required fields!',
+      'error'
+    )
+
+    }
 
   }
 

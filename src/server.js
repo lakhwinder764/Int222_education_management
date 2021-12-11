@@ -26,23 +26,30 @@ app.get("/studetails",async(req,res)=>{
 })
 
 
-app.post("/stuinfo",(request,response)=>{
-    const studata=new Detailsmodel({
-        RollNo:request.body.RollNo,
-        Name:request.body.Name,
-        Address:request.body.Address,
-        ContactNumber:request.body.ContactNumber,
-        Email:request.body.Email
-    })
-    studata.save()
-    .then((data)=>{
-        response.json(data)
-       
-      
-    }).catch((err)=>{
-        response.json(err)
-    })
-
+app.post("/stuinfo",async(request,response)=>{
+    const data=await Detailsmodel.findOne({RollNo:request.body.RollNo})
+    if(data){
+        return "Error"
+    }
+    else{
+        const studata=new Detailsmodel({
+            RollNo:request.body.RollNo,
+            Name:request.body.Name,
+            Address:request.body.Address,
+            ContactNumber:request.body.ContactNumber,
+            Email:request.body.Email
+        })
+        studata.save()
+        .then((data)=>{
+            response.json(data)
+           
+          
+        }).catch((err)=>{
+            response.json(err)
+        })
+    
+    }
+   
 
 })
 
