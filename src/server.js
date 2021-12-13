@@ -4,7 +4,7 @@ const mongoose=require("mongoose");
 const Detailsmodel = require("./models/Detailsmodel");
 const cors=require("cors");
 
-mongoose.connect("mongodb://localhost:27017/users",{
+mongoose.connect("mongodb+srv://lakhwinder:Singh1999$@cluster0.wmfzp.mongodb.net/users?retryWrites=true&w=majority",{
     useNewUrlParser:true,
     useUnifiedTopology: true
 })
